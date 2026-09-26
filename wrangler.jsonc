@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "advent-day-19-weather-mcp-composition",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-26",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "WEATHER_ADVICE_DB",
+      "database_name": "advent-day-19-weather-advice",
+      "database_id": "49dd6921-c1ce-4bf5-a9fb-f129f600a97b",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

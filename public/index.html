@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MCP-пайплайн прогноза на завтра и совета по одежде." />
+    <title>Погода на завтра — MCP pipeline</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">День 19 · композиция MCP-инструментов</p>
+        <h1>Что надеть завтра?</h1>
+        <p class="intro">Введите город — агент получит прогноз Open-Meteo, составит практический совет и сохранит его в Markdown-файл.</p>
+      </section>
+
+      <section class="card form-card" aria-labelledby="request-title">
+        <h2 id="request-title">Запрос погоды</h2>
+        <form id="weather-form">
+          <label for="city">Город</label>
+          <div class="form-row">
+            <input id="city" name="city" type="text" minlength="2" maxlength="100" value="Belgrade" autocomplete="address-level2" required />
+            <button id="submit" type="submit">Получить совет</button>
+          </div>
+        </form>
+        <p class="hint">Примеры: Belgrade, Novi Sad, Москва, London.</p>
+      </section>
+
+      <section id="status" class="status" aria-live="polite" hidden></section>
+
+      <section id="result" class="result" hidden>
+        <section class="card summary-card">
+          <p id="date" class="eyebrow"></p>
+          <h2 id="city-name"></h2>
+          <p id="summary" class="summary"></p>
+          <div class="metrics" id="metrics"></div>
+        </section>
+
+        <div class="two-columns">
+          <section class="card">
+            <h2>Что надеть</h2>
+            <ul id="clothing"></ul>
+          </section>
+          <section class="card umbrella-card">
+            <h2>Нужен ли зонт?</h2>
+            <p id="umbrella"></p>
+          </section>
+        </div>
+
+        <section class="card">
+          <h2>Автоматический MCP-пайплайн</h2>
+          <ol id="pipeline" class="pipeline"></ol>
+          <a id="file-link" class="file-link" target="_blank" rel="noopener">Открыть сохранённый Markdown-файл</a>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

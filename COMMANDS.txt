@@ -1,0 +1,34 @@
+День 19 — Weather MCP composition
+
+Папка проекта:
+cd D:\AIAdvent\advent-day-19-weather-mcp-composition
+
+Установка зависимостей в PowerShell:
+npm.cmd install
+
+Проверка TypeScript и тестов:
+npm.cmd run check
+
+Применение миграции к удалённой Cloudflare D1 (выполняется перед первым deploy):
+npx.cmd wrangler d1 migrations apply advent-day-19-weather-advice --remote
+
+Deploy Worker в Cloudflare:
+npm.cmd run deploy
+
+Проверка опубликованного Worker:
+curl.exe https://advent-day-19-weather-mcp-composition.advent-day-18-scheduled-mcp.workers.dev/health
+
+Открыть UI в браузере:
+https://advent-day-19-weather-mcp-composition.advent-day-18-scheduled-mcp.workers.dev
+
+MCP endpoint:
+https://advent-day-19-weather-mcp-composition.advent-day-18-scheduled-mcp.workers.dev/mcp
+
+Тест автоматического пайплайна через HTTP API:
+curl.exe -X POST "https://advent-day-19-weather-mcp-composition.advent-day-18-scheduled-mcp.workers.dev/api/advice" -H "Content-Type: application/json" -d "{\"city\":\"Belgrade\"}"
+
+Локальный запуск (не нужен для Cloudflare deploy):
+npm.cmd run dev
+
+Если PowerShell блокирует npm/npx, всегда используйте npm.cmd и npx.cmd,
+а не npm и npx.
